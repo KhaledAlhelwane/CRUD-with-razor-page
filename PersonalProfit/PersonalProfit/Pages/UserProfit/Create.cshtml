@@ -1,0 +1,64 @@
+﻿@page
+@model PersonalProfit.Pages.UserProfit.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="User.Name" class="control-label"></label>
+                <input asp-for="User.Name" class="form-control" />
+                <span asp-validation-for="User.Name" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="User.type" class="control-label"></label>
+                <input asp-for="User.type" class="form-control" />
+                <span asp-validation-for="User.type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Date" class="control-label"></label>
+                <input asp-for="User.Date" class="form-control" />
+                <span asp-validation-for="User.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.MonthlyPyment" class="control-label"></label>
+                <input asp-for="User.MonthlyPyment" class="form-control" />
+                <span asp-validation-for="User.MonthlyPyment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Allamount" class="control-label"></label>
+                <input asp-for="User.Allamount" class="form-control" />
+                <span asp-validation-for="User.Allamount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.RemainingQuantity" class="control-label"></label>
+                <input asp-for="User.RemainingQuantity" class="form-control" />
+                <span asp-validation-for="User.RemainingQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.PrecentageProfit" class="control-label"></label>
+                <input asp-for="User.PrecentageProfit" class="form-control" />
+                <span asp-validation-for="User.PrecentageProfit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

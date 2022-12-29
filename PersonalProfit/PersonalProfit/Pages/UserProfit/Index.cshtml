@@ -1,0 +1,82 @@
+﻿@page 
+@model PersonalProfit.Pages.UserProfit.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create" class="btn-link">Create New</a>
+</p>
+<form>
+     <select asp-for="MovieGenre" asp-items="Model.Genres" class="form-select">
+            <option value="">All</option>
+        </select>
+    <p>
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+  
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Name)
+            </th> 
+             <th>
+                @Html.DisplayNameFor(model => model.User[0].type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].MonthlyPyment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Allamount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].RemainingQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].PrecentageProfit)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.User) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthlyPyment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Allamount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RemainingQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecentageProfit)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
